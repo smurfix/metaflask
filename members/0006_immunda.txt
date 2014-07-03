@@ -1,5 +1,6 @@
 Name: Phil Howell
 Github: immunda
+Twitter: immunda
 E-Mail: phil@fictivekin.com
 Sponsor: mitsuhiko
 
