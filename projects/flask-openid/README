@@ -1,0 +1,3 @@
+Flask-OpenID
+
+Adds support for OpenID login to flask applications.

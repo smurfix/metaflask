@@ -1,0 +1,8 @@
+Name: Flask-OpenID
+Website: https://github.com/mitsuhiko/flask-openid
+Github: mitsuhiko/flask-openid
+Bugtracker: https://github.com/mitsuhiko/flask-openid/issues
+Documentation: https://pythonhosted.org/Flask-OpenID/
+PyPI: Flask-OpenID
+License: BSD
+Status: active
