@@ -1,0 +1,6 @@
+Name: Jameson Lee
+Twitter: @jamesonjlee
+Github: jamesonjlee
+E-Mail: jamesonjlee@gmail.com
+
+Jameson Lee likes to contribute to many Flask extensions (Security, Mail, SQLAlchemy)
