@@ -1,0 +1,6 @@
+Name: Patrick Uiterwijk
+Github: puiterwijk
+Email: puiterwijk@gmail.com
+Sponsor: 
+
+Maintainer of the Flask-OpenID extension.
