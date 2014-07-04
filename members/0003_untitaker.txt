@@ -2,3 +2,6 @@ Name: Markus Unterwaditzer
 Github: untitaker
 E-Mail: markus-gh@unterwaditzer.net
 Sponsor: mitsuhiko
+
+Contributor to Werkzeug and Flask, most notably by helping porting these to
+Python 3.
