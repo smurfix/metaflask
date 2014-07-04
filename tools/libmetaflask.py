@@ -59,13 +59,11 @@ def read_mime(f):
     return Headers(headers), payload, h.hexdigest()
 
 
-class Member(_MetaViewContainer):
+class Person(_MetaViewContainer):
 
-    def __init__(self, metaview, path, num, login, f):
+    def __init__(self, metaview, path, f):
         _MetaViewContainer.__init__(self, metaview)
         self.path = _normpath(os.path.join(metaview.member_path, path))
-        self.num = num
-        self.login = login
         self.meta, payload, self.checksum = read_mime(f)
         self.description = payload.decode('utf-8').rstrip()
 
@@ -81,6 +79,29 @@ class Member(_MetaViewContainer):
     def email(self):
         return self.meta.get('e-mail')
 
+    def to_json(self, compact=False):
+        return {
+            'num': self.num,
+            'login': self.login,
+            'name': self.name,
+            'twitter': self.twitter,
+            'email': self.email,
+            'description': self.description,
+        }
+
+    def __repr__(self):
+        return '<Person %r>' % (
+            self.name,
+        )
+
+
+class Member(Person):
+
+    def __init__(self, metaview, path, num, login, f):
+        Person.__init__(self, metaview, path, f)
+        self.num = num
+        self.login = login
+
     @cached_property
     def sponsor(self):
         sponsor = self.meta.get('sponsor')
@@ -91,16 +112,12 @@ class Member(_MetaViewContainer):
         if compact:
             return {'num': self.num, 'login': self.login,
                     'name': self.name}
-        return {
-            'num': self.num,
-            'login': self.login,
-            'name': self.name,
-            'twitter': self.twitter,
-            'email': self.email,
-            'sponsor': self.sponsor
-                and self.sponsor.to_json(compact=True) or None,
-            'description': self.description,
-        }
+        rv = Person.to_json(self, compact=compact)
+        if self.sponsor is None:
+            rv['sponsor'] = None
+        else:
+            rv['sponsor'] = self.sponsor.to_json(compact=True)
+        return rv
 
     def __repr__(self):
         return '<Member %04d: %r>' % (
@@ -206,8 +223,15 @@ class Project(_MetaViewContainer):
 
     @cached_property
     def project_lead(self):
-        return self.metaview.locate_linked_member(
+        p = os.path.join(self.path, 'PROJECT_LEAD')
+        if not os.path.exists(p):
+            return
+        rv = self.metaview.locate_linked_member(
             os.path.join(self.path, 'PROJECT_LEAD'))
+        if rv is None:
+            with open(p, 'rb') as f:
+                rv = Person(self.metaview, p, f)
+        return rv
 
     @cached_property
     def stewards(self):
