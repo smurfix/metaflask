@@ -334,6 +334,6 @@ class MetaView(object):
 
 
 if __name__ == '__main__':
+    import json
     mv = MetaView(os.path.join(os.path.dirname(__file__), '..'))
-    import pprint
-    pprint.pprint(mv.to_json())
+    print json.dumps(mv.to_json(), indent=2)
