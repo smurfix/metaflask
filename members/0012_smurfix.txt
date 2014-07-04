@@ -1,0 +1,6 @@
+Name: Matthias Urlichs
+Github: smurfix
+Email: matthias@urlichs.de
+Sponsor: mitsuhiko
+
+Maintainer of Flask-Script.
