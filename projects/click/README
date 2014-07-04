@@ -1,0 +1,7 @@
+CLICK
+
+The Click project is a command line library for Python that is being used
+in newer versions of Flask but also useful as a standalone library.
+
+Currently Click is mainly centrally managed by Armin Ronacher but this
+should open up a bit more over time.
