@@ -36,9 +36,10 @@ def read_mime(f):
     def _readline():
         line = f.readline()
         h.update(line)
+        line = line.decode('utf-8')
         if not line.strip():
             return u''
-        return line.rstrip('\r\n').decode('utf-8')
+        return line.rstrip('\r\n')
 
     while 1:
         line = _readline()
@@ -328,7 +329,7 @@ class MetaView(object):
         return (x[1] for x in sorted(self.members_by_num.items()))
 
     def iter_projects(self):
-        return self.projects.itervalues()
+        return self.projects.values()
 
     def locate_linked_member(self, path):
         npath = _normpath(path)
@@ -360,4 +361,4 @@ class MetaView(object):
 if __name__ == '__main__':
     import json
     mv = MetaView(os.path.join(os.path.dirname(__file__), '..'))
-    print json.dumps(mv.to_json(), indent=2)
+    print(json.dumps(mv.to_json(), indent=2))
