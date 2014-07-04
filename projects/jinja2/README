@@ -1,0 +1,9 @@
+JINJA2
+
+The Jinja2 project is an implementation of a template engine for Python
+that is largely inspired by an old version of Django but departed into a
+very different direction.  It is being used by Flask, the Sphinx documentation
+tool and many other libraries.
+
+Currently Jinja2 is mainly centrally managed by Armin Ronacher but this
+should open up a bit more over time.
