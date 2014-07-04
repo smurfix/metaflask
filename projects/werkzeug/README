@@ -1,0 +1,8 @@
+WERKZEUG
+
+The Werkzeug project is an HTTP and WSGI library for Python that mainly
+focuses on the server side.  It's the base of Flask and some other
+frameworks.
+
+Currently Werkzeug is mainly centrally managed by Armin Ronacher but this
+should open up a bit more over time.

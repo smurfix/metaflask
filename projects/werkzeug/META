@@ -1,0 +1,8 @@
+Name: Werkzeug
+Website: http://werkzeug.pocoo.org/
+Github: mitsuhiko/werkzeug
+Bugtracker: https://github.com/mitsuhiko/werkzeug/issues
+Documentation: http://werkzeug.pocoo.org/docs/
+PyPI: Werkzeug
+License: BSD
+Status: active
