@@ -1,0 +1,5 @@
+Flask-Script
+
+The Flask-Script extension adds command-line processing to Flask.
+It was originally authored by Dan Jacob and previously maintained
+by Sean Lynch.
